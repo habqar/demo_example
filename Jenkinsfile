@@ -6,17 +6,30 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
-            steps {
-                echo 'Run coverage and CLEAN UP Before'
-                sh 'mvn -B -DskipTests clean package'
+        stage('Compile') {
+                steps {
+                    sh 'mvn compile'
+                }
             }
-        }
-        stage('Test') {
-             steps {
-                echo 'Run Unit Tests'
-                sh 'mvn test'
-             }
-        }
+            stage('Build') {
+                steps {
+                    sh 'mvn -B -DskipTests clean package'
+                }
+            }
+            stage('Test') {
+                        steps {
+                            sh 'mvn test'
+                        }
+            }
+            stage('Quality') {
+                        steps {
+                            sh 'mvn sonar:sonar'
+                        }
+            }
+            stage('Deliver') {
+                        steps {
+                            echo 'here just delivery'
+                        }
+            }
     }
 }
