@@ -8,11 +8,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo 'Run coverage and CLEAN UP Before'
                 sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
              steps {
+                echo 'Run Unit Tests'
                 sh 'mvn test'
              }
         }

@@ -1,7 +1,9 @@
 package com.itv.demo.core.service;
 
 import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ScrapePageImpl implements ScrapePageService {
    
     @Override
