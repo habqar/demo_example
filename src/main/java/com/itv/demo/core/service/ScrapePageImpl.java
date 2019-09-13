@@ -7,62 +7,77 @@ import org.springframework.stereotype.Service;
 public class ScrapePageImpl implements ScrapePageService {
    
     @Override
-    public long scrapeNbrImgs(Document page) {
+    public int scrapeNbrImgs(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrTags(Document page) {
+    public int scrapeNbrTags(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrH1(Document page) {
+    public int scrapeNbrH1(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrH2(Document page) {
+    public int scrapeNbrH2(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrH3(Document page) {
+    public int scrapeNbrH3(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrH4(Document page) {
+    public int scrapeNbrH4(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrJs(Document page) {
+    public int scrapeNbrJs(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrCSS(Document page) {
+    public int scrapeNbrCSS(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrExetrnalCalls(Document page) {
+    public int scrapeNbrExetrnalCalls(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeNbrTokens(Document page) {
+    public int scrapeNbrTokens(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeSizeHTML(Document page) {
+    public int scrapeSizeHTML(Document page) {
         return 0;
     }
 
     @Override
-    public long scrapeSizzeText(Document page) {
+    public int scrapeSizeText(Document page) {
+        return 0;
+    }
+
+    @Override
+    public int scrapeH1titleLength(Document page) {
+        return 0;
+    }
+
+    @Override
+    public int scrapeTitleLength(Document page) {
+        return 0;
+    }
+
+    @Override
+    public int scrapeDescriptionLength(Document page) {
         return 0;
     }
 }

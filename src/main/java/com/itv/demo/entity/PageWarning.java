@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class PageWarning {
-    private String message;
-    private SEVERITY severity;
+    private Warning warning;
+    private List<String> resourceElement;
 
-    private enum SEVERITY {LOW, MEDIUM, HIGH}
 }

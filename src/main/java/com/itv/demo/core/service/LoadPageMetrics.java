@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -28,11 +27,13 @@ public class LoadPageMetrics {
             return null;
         }
     }
-    public PageMetrics loadPageMetrics(String url){
+    PageMetrics loadPageMetrics(String url){
         Document page = getPageSource(url);
         log.info("Load Metrics for Page ["+url+"] ..");
         return PageMetrics.builder()
-                .descriptionLength(scrapePageService.scrapeNbrH1(page))
+                .titleLength(scrapePageService.scrapeTitleLength(page))
+                .descriptionLength(scrapePageService.scrapeDescriptionLength(page))
+                .titleH1Length(scrapePageService.scrapeH1titleLength(page))
                 .nbrH1(scrapePageService.scrapeNbrH1(page))
                 .nbrH2(scrapePageService.scrapeNbrH2(page))
                 .nbrH3(scrapePageService.scrapeNbrH3(page))

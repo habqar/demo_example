@@ -16,6 +16,7 @@ public class PageMetrics {
     private long sizeHTML;
     private long titleLength;
     private long descriptionLength;
+    private long titleH1Length;
     private long nbrH1;
     private long nbrH2;
     private long nbrH3;
