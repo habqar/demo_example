@@ -10,15 +10,16 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PageValue {    private String id;
+public class PageValue {
 
+    private String id;
     private String link;
     private List<PageWarning> pageWarnings;
     private PageMetrics pageMetrics;
 
     public PageValue(String link) {
-        this.id = hashCode()+"";
         this.link = link;
+        this.id = hashCode()+"";
     }
 
     @Override
@@ -33,6 +34,6 @@ public class PageValue {    private String id;
 
     @Override
     public int hashCode() {
-        return Objects.hash(link, pageWarnings, pageMetrics);
+        return Objects.hash(link);
     }
 }

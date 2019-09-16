@@ -13,7 +13,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @Slf4j
 public class LoadPageMetrics {
-
     private final ScrapePageService scrapePageService;
 
     private Document getPageSource(String url){
