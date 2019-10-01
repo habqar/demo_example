@@ -22,12 +22,12 @@ pipeline {
                     sh 'mvn -B -DskipTests clean package'
                 }
             }
-            stage('Test') {
+            stage('Unitary Test') {
                         steps {
                             echo 'to fix after'
                         }
             }
-            stage('Quality') {
+            stage('Quality Code') {
                         steps {
                             sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.135:9000 -Dsonar.login=1112eb90cf7270a077cb474fcc13ee80f1dc4352'
                         }
@@ -37,6 +37,22 @@ pipeline {
                   echo 'execution of Quality Gate to implement'
                 }
               }
+            stage("Image build") {
+                    steps {
+                      echo 'image build to implement'
+                    }
+                  }
+        
+            stage("Push to Repository") {
+                    steps {
+                      echo 'push to repo to implement'
+                    }
+                  }
+            stage("Run") {
+                        steps {
+                          echo 'run to implement'
+                        }
+                      }
             stage('Deliver') {
                         steps {
                             echo 'here just delivery'
