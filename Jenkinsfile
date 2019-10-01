@@ -34,7 +34,7 @@ pipeline {
             }
             stage("Quality Gate") {
                 steps {
-                  waitForQualityGate abortPipeline: true
+                  echo 'execution of Quality Gate to implement'
                 }
               }
             stage('Deliver') {
