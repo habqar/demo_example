@@ -6,6 +6,12 @@ pipeline {
         }
     }
     stages {
+        stage('Check') {
+                steps {
+                    sh 'mvn -v'
+                }
+            }
+        
         stage('Compile') {
                 steps {
                     sh 'mvn compile'
@@ -23,7 +29,7 @@ pipeline {
             }
             stage('Quality') {
                         steps {
-                            sh 'sonar:sonar -Dsonar.host.url=http://192.168.1.135:9000 -Dsonar.login= 1112eb90cf7270a077cb474fcc13ee80f1dc4352'
+                            sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.1.135:9000 -Dsonar.login=1112eb90cf7270a077cb474fcc13ee80f1dc4352'
                         }
             }
             stage('Deliver') {
