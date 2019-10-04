@@ -42,7 +42,7 @@ pipeline {
         
             stage("Push to Repository") {
                     steps {
-                      echo 'push to repo to implement'
+                      mvn deploy -Dmaven.test.skip=true
                     }
                   }
             stage("Run") {
