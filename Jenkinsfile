@@ -42,7 +42,7 @@ pipeline {
         
             stage("Push to Repository") {
                     steps {
-                      mvn deploy -Dmaven.test.skip=true
+                      mvn -DskipTests deploy 
                     }
                   }
             stage("Run") {
