@@ -75,5 +75,18 @@
             </plugin>
         </plugins>
     </build>
+         
+    <distributionManagement>
+             <snapshotRepository>
+               <name>Internal Releases</name>
+               <id>Deployement</id>
+               <url>http://192.168.1.135:8081/repository/ITV-REPO-SNAP/</url>
+            </snapshotRepository>
+            <repository>
+               <name>Internal Snapshots Releases</name>
+               <id>Deployement</id>
+               <url>http://192.168.1.135:8081/repository/ITV-REPO-REL/</url>
+            </repository>
+ </distributionManagement>
 
 </project>
