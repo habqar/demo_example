@@ -75,7 +75,11 @@
             </plugin>
         </plugins>
     </build>
-         
+    <configuration>
+               <serverId>nexus</serverId>
+               <nexusUrl>http://192.168.1.135:8081/nexus/</nexusUrl>
+               <skipStaging>true</skipStaging>
+   </configuration>
     <distributionManagement>
              <snapshotRepository>
                <name>Internal Releases</name>
