@@ -38,7 +38,12 @@ pipeline {
                   sh 'docker build . -t demo:1'
                 }
             }
-        
+            stage('Push docker image') {
+                docker.withRegistry('https://192.168.1.135:5050', 'private-docker-hub-credentiels') {
+                    app.push("${env.BUILD_NUMBER}")
+                    app.push("latest")
+                }
+            }
             stage("Push to Repository") {
                     steps {
                       sh 'mvn -B -DskipTests deploy'
