@@ -34,8 +34,10 @@ pipeline {
                 }
               }
             stage("Image build") {
+                steps{
                     app = docker.build("demo")
                   }
+            }
         
             stage("Push to Repository") {
                     steps {
