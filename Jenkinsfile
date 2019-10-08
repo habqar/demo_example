@@ -34,9 +34,7 @@ pipeline {
                 }
               }
             stage("Image build") {
-                    steps {
-                      echo 'image build to implement'
-                    }
+                    app = docker.build("demo")
                   }
         
             stage("Push to Repository") {
