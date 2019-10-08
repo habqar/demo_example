@@ -34,9 +34,9 @@ pipeline {
                 }
               }
             stage("Image build") {
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
-                  }
+                steps {
+                  sh 'docker build . -t demo:1'
+                }
             }
         
             stage("Push to Repository") {
