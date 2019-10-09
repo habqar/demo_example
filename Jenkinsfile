@@ -51,7 +51,7 @@ pipeline {
             stage("Image build") {
                 steps {
                   echo "-=- build Docker image -=-"
-                  sh 'mvn docker:build'
+                  sh 'mvn dockerfile:build'
                 }
             }
             stage('Push docker image') {
