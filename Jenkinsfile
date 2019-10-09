@@ -35,7 +35,7 @@ pipeline {
             stage('Mutation Test') {
                         steps {
                             echo "-=- execute mutation tests -=-"
-                            sh "./mvnw org.pitest:pitest-maven:mutationCoverage"
+                            sh "mvn org.pitest:pitest-maven:mutationCoverage"
                         }
             }
             stage('Quality Code') {
