@@ -1,4 +1,13 @@
 pipeline {
+    environment {
+        registry = "https://192.168.1.135:5050"
+        registryCredential = 'private-docker-hub-credentiels' 
+        APP_NAME = "demo"
+        APP_CONTEXT_ROOT = "/"
+        APP_LISTENING_PORT = "1010"
+        TEST_CONTAINER_NAME = "ci-${APP_NAME}-${BUILD_NUMBER}"    
+    }
+    
     agent any
     
     stages {
@@ -10,17 +19,23 @@ pipeline {
         
         stage('Compile') {
                 steps {
-                    sh 'mvn compile'
+                    sh 'mvn clean compile'
                 }
             }
-            stage('Build') {
+            stage('Package') {
                 steps {
-                    sh 'mvn -B -DskipTests clean package'
+                    sh 'mvn -B -DskipTests package'
                 }
             }
-            stage('Unitary Test') {
+            stage('Unit Test') {
                         steps {
                             echo 'to fix after'
+                        }
+            }
+            stage('Mutation Test') {
+                        steps {
+                            echo "-=- execute mutation tests -=-"
+                            sh "./mvnw org.pitest:pitest-maven:mutationCoverage"
                         }
             }
             stage('Quality Code') {
@@ -35,14 +50,15 @@ pipeline {
               }
             stage("Image build") {
                 steps {
-                  sh 'docker build . -t demo:1'
+                  echo "-=- build Docker image -=-"
+                  sh 'mvn docker:build'
                 }
             }
             stage('Push docker image') {
-                docker.withRegistry('https://192.168.1.135:5050', 'private-docker-hub-credentiels') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
-                }
+                steps {
+                    echo "-=- push Docker image -=-"
+                    sh "mvn docker:push"
+            }   
             }
             stage("Push to Repository") {
                     steps {
