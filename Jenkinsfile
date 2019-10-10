@@ -8,8 +8,9 @@ pipeline {
         TEST_CONTAINER_NAME = "ci-${APP_NAME}-${BUILD_NUMBER}"    
     }
     
-    agent any
-    
+    agent {
+        dockerfile true
+    }
     stages {
         stage('Check') {
                 steps {
