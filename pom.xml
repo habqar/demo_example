@@ -100,11 +100,6 @@
                     <configuration>
                         <repository>${docker.image.prefix}/${project.artifactId}</repository>
                         <dockerDirectory>${project.basedir}</dockerDirectory>
-                        <imageName>${docker.image.prefix}/${project.name}</imageName>
-                        <imageTags>
-                            <imageTag>${project.version}</imageTag>
-                            <imageTag>latest</imageTag>
-                        </imageTags>
                         <serverId>docker-hub</serverId>
                         <registryUrl>192.168.1.135:5050</registryUrl>
                     </configuration>
